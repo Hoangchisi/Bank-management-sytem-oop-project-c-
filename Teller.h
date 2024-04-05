@@ -22,7 +22,7 @@ public:
 
     void collectMoney(int customerId,int accountId ,int nMoney);
 
-    void openAccount(int customerId, int nMoney);
+    void openAccount(int customerId, int nMoney, std::string type);
 
     void closeAccount(int customerId, int accountId);
 

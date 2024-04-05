@@ -12,7 +12,8 @@ private:
     int id;
     std::string address;
     int phoneNo;
-    std::vector<Account> accountList;
+    std::vector<CreditAccount> creditAccountList;
+    std::vector<DebitAccount> debitAccountList;
     std::vector<Loan> loanList;
 
 public:
@@ -31,12 +32,14 @@ public:
 
     void withdrawMoney(int nMoney, int accountId);
 
-    void createAccount(int nMoney);
+    void createAccount(int nMoney, std::string type);
 
     void deleteAccount(int accountId);
     
     void applyForLoan(std::string type, int accountId, int loanMoney);
 
-    int findAccount(int accountId);
+    int findAccount(int accountId, std::vector<CreditAccount>);
+
+    int findAccount(int accountId, std::vector<DebitAccount>);
 };
 #endif

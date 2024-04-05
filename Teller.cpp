@@ -5,7 +5,7 @@ int Teller::countId = 0;
 Teller::Teller()
 {
     id = countId++;
-    name = "Layla";
+    name = "The Rock";
 
 }
 
@@ -20,9 +20,9 @@ void Teller::addCustomer(Customer customer)
     customerList.push_back(customer);
 }
 
-void Teller::openAccount(int customerId, int nMoney)
+void Teller::openAccount(int customerId, int nMoney, std::string type)
 {
-    customerList[customerId].createAccount(nMoney);
+    customerList[customerId].createAccount(nMoney,type);
 }
 
 void Teller::closeAccount(int customerId, int accountId)

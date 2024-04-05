@@ -33,7 +33,7 @@ void Bank::getMenu()
 
     cout<<"Please enter your option: ";
     int option, customerId, accountId,nMoney; 
-    string type;
+    string loanType, accountType;
     cin>>option;
 
     switch (option)
@@ -47,7 +47,7 @@ void Bank::getMenu()
             cin>>customerId;
             
             //invalid customer id
-            if(customerId > teller.customerList.size())
+            if(customerId > teller.customerList.size() || customerId < 0)
             {
                 cout<<"Invalid customer id!!!"<<'\n';
                 getMenu();
@@ -63,10 +63,19 @@ void Bank::getMenu()
 
             cout<<"Please enter the amount of money: ";
             cin>>nMoney;
+
+            //negative money
+            if(nMoney < 0)
+            {
+                cout<<"Invalid amount of money!!!"<<'\n';
+                getMenu();
+                break;
+            }
+
             cout<<"Please enter your customer ID: ";
             cin>>customerId;
 
-            if(customerId > teller.customerList.size())
+            if(customerId > teller.customerList.size() || customerId < 0)
             {
                 cout<<"Invalid customer id!!!"<<'\n';
                 getMenu();
@@ -86,10 +95,18 @@ void Bank::getMenu()
 
             cout<<"Please enter the amount of money: ";
             cin>>nMoney;
+
+            if(nMoney < 0)
+            {
+                cout<<"Invalid amount of money!!!"<<'\n';
+                getMenu();
+                break;
+            }
+
             cout<<"Please enter your customer ID: ";
             cin>>customerId;
 
-            if(customerId > teller.customerList.size())
+            if(customerId > teller.customerList.size() || customerId < 0)
             {
                 cout<<"Invalid customer id!!!"<<'\n';
                 getMenu();
@@ -112,15 +129,19 @@ void Bank::getMenu()
             cout<<"Please enter your customer ID: ";
             cin>>customerId;
             
-            if(customerId > teller.customerList.size())
+            if(customerId > teller.customerList.size() || customerId < 0)
             {
                 cout<<"Invalid customer id!!!"<<'\n';
                 getMenu();
                 break;
             }
 
+            cout<<"Please enter type of account (credit: c | debit: d): ";
+            getline(cin,accountType);
+            getline(cin,accountType);
+
             system("cls");
-            teller.openAccount(customerId,nMoney);
+            teller.openAccount(customerId,nMoney,accountType);
 
             getMenu();
         break;
@@ -129,7 +150,7 @@ void Bank::getMenu()
             cout<<"Please enter your customer ID: ";
             cin>>customerId;
 
-            if(customerId > teller.customerList.size())
+            if(customerId > teller.customerList.size() || customerId < 0)
             {
                 cout<<"Invalid customer id!!!"<<'\n';
                 getMenu();
@@ -153,7 +174,7 @@ void Bank::getMenu()
             cout<<"Please enter your customer ID: ";
             cin>>customerId;
 
-            if(customerId > teller.customerList.size())
+            if(customerId > teller.customerList.size() || customerId < 0)
             {
                 cout<<"Invalid customer id!!!"<<'\n';
                 getMenu();
@@ -163,11 +184,11 @@ void Bank::getMenu()
             cout<<"Please enter your account ID: ";
             cin>>accountId;
             cout<<"Please enter type of loan (trust/mortgage): ";
-            getline(cin,type);
-            getline(cin,type);
+            getline(cin,loanType);
+            getline(cin,loanType);
 
             system("cls");
-            teller.loanRequest(customerId,accountId,nMoney,type);
+            teller.loanRequest(customerId,accountId,nMoney,loanType);
 
             getMenu();
         break;
