@@ -9,9 +9,10 @@ class Teller
 private:
     static int countId;
     int id;
+    std::vector<Customer> customerList;
 public:
     std::string name;
-    std::vector<Customer> customerList;
+    
 
     //default constructor
     Teller();
@@ -31,6 +32,8 @@ public:
     void withdrawRequest(int customerId, int accountId,int nMoney);
 
     void provideInfo(int customerId);
+
+    bool checkCustomerId(int customerId);
 };
 
 #endif
