@@ -1,5 +1,5 @@
 How to run code: 
 
-mingw32-make
+mingw32-make.exe
 
 ./main
