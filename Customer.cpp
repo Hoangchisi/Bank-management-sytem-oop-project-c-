@@ -42,7 +42,9 @@ void Customer::depositMoney(int nMoney, int accountId)
     {
         debitAccountList[pos].depositMoney(nMoney);
         std::cout<<"Successfully deposited "<<nMoney<<"!"<<'\n';
+        return;
     }
+    std::cout<<"Account was not found!!!"<<'\n';
     
 }
 
