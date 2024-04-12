@@ -2,6 +2,8 @@
 #include <vector>
 #include "Loan.h"
 #include "Account.h"
+#include "CreditAccount.h"
+#include "DebitAccount.h"
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 

@@ -22,18 +22,4 @@ public:
 
 };
 
-class CreditAccount:public Account
-{
-public:
-    void withdrawMoney(int nMoney);
-    CreditAccount(int newCustomerId, int newMoney);
-};
-
-class DebitAccount:public Account
-{
-public:
-    void withdrawMoney(int nMoney);
-    DebitAccount(int newCustomerId, int newMoney);
-};
-
 #endif
